@@ -13,4 +13,4 @@
         result
         (if (atom (car tree))
             (flat-traverse2 (cdr tree) fun (cons (funcall fun (car tree)) result))
-            (flat-traverse2 (cdr tree) fun (flat-traverse2 (car tree) fun result)) ))
+            (flat-traverse2 (cdr tree) fun (flat-traverse2 (car tree) fun result)) )))
