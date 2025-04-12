@@ -18,6 +18,14 @@
     (and (= x (car hit)) (= y (cadr hit)) (= z (caddr hit)) ))
 
 ; [b]
-(setf hits (lambda (x y z) (if (= x y z 7) 10 ( if (= x y z) 2 0 ))))
+; (setf hits (lambda (x y z) (if (= x y z 7) 10 ( if (= x y z) 2 0 ))))
 
-(defun check (x y z hits) (funcall hits x y z))
+; (defun check (x y z hits) (funcall hits x y z))
+
+(defun slot (bet ramdom-state hits)
+    (let ((rand3 (rand3 10 random-state)))
+        (let ((ratio (check (car rand3) (cadr rand3) (caddr rand3) hits)))
+            (cons (* bet ratio) rand3) )))
+
+; (setf slot (slot 10 *random-state hits))
+; => (0 5 9 6 #S(RANDOM-STATE #*1011...0101))
